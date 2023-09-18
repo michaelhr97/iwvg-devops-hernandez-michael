@@ -11,4 +11,4 @@
 
 ## Estado del código 
 ![DevOps](https://github.com/michaelhr97/iwvg-devops-hernandez-michael/actions/workflows/devops.yml/badge.svg)
-![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=michaelhr97_iwvg-devops-hernandez-michael&metric=sqale_rating)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=michaelhr97_iwvg-devops-hernandez-michael&metric=sqale_rating)](https://sonarcloud.io/project/overview?id=michaelhr97_iwvg-devops-hernandez-michael)
