@@ -11,3 +11,4 @@
 
 ## Estado del código 
 ![DevOps](https://github.com/michaelhr97/iwvg-devops-hernandez-michael/actions/workflows/devops.yml/badge.svg)
+![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=michaelhr97_iwvg-devops-hernandez-michael&metric=alert_status)
