@@ -18,7 +18,12 @@ class UserTest {
 
     @BeforeEach
     void before() {
-        testFractions = new ArrayList<>();
+        testFractions = List.of(
+                new Fraction(1, 2),
+                new Fraction(3, 4),
+                new Fraction(9, 8),
+                new Fraction(-1, 7)
+        );
         testUser = new User("testId", "testName", "testFamilyName", testFractions);
     }
 
@@ -47,6 +52,32 @@ class UserTest {
     void testSetFamilyName() {
         testUser.setFamilyName("newTestFamilyName");
         assertEquals("newTestFamilyName", testUser.getFamilyName());
+    }
+
+    @Test
+    void testGetFractions() {
+        assertEquals(testFractions, testUser.getFractions());
+    }
+
+    @Test
+    void testSetFractions() {
+        List<Fraction> testNewFractions = List.of(
+                new Fraction(7, 4),
+                new Fraction(4, 9)
+        );
+        testUser.setFractions(testNewFractions);
+        assertEquals(testNewFractions, testUser.getFractions());
+    }
+
+    @Test
+    void testAddFraction() {
+        List<Fraction> fractionsArray = new ArrayList<Fraction>();
+        fractionsArray.add(new Fraction(1, 3));
+        fractionsArray.add(new Fraction(1, 4));
+        testUser = new User("TestID", "TestName", "TestFamilyName", fractionsArray);
+        Fraction newFraction = new Fraction(3, 1);
+        testUser.addFraction(newFraction);
+        assertEquals(newFraction, testUser.getFractions().get(2));
     }
 
     @Test
