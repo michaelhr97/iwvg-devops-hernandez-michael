@@ -51,7 +51,19 @@ class FractionTest {
     }
 
     @Test
+    void testIsNotProper() {
+        this.testFraction = new Fraction(5, 1);
+        assertFalse(testFraction.isProper());
+    }
+
+    @Test
     void testIsImproper() {
+        assertFalse(testFraction.isImproper());
+    }
+
+    @Test
+    void testIsNotImproper() {
+        this.testFraction = new Fraction(1, 5);
         assertFalse(testFraction.isImproper());
     }
 
