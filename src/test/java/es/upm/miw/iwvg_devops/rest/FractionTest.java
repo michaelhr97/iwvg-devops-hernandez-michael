@@ -8,11 +8,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class FractionTest {
 
-    private Fraction testFraction;
+    private Fraction testFraction, inputFraction;
 
     @BeforeEach
     void before() {
         this.testFraction = new Fraction(2, 5);
+        this.inputFraction = new Fraction(4, 10);
     }
 
     @Test
@@ -42,6 +43,39 @@ class FractionTest {
     @Test
     void testDecimal() {
         assertEquals(0.4, testFraction.decimal());
+    }
+
+    @Test
+    void testIsProper() {
+        assertTrue(testFraction.isProper());
+    }
+
+    @Test
+    void testIsImproper() {
+        assertFalse(testFraction.isImproper());
+    }
+
+    @Test
+    void testIsEquivalent() {
+        assertTrue(testFraction.isEquivalent(inputFraction));
+    }
+
+    @Test
+    void testAdd() {
+        Fraction result = new Fraction(4, 5);
+        assertTrue(result.isEquivalent(testFraction.add(inputFraction)));
+    }
+
+    @Test
+    void testMultiply() {
+        Fraction result = new Fraction(8, 50);
+        assertTrue(result.isEquivalent(testFraction.multiply(inputFraction)));
+    }
+
+    @Test
+    void testDivide() {
+        Fraction result = new Fraction(1, 1);
+        assertTrue(result.isEquivalent(testFraction.divide(inputFraction)));
     }
 
     @Test
