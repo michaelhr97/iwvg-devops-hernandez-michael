@@ -57,6 +57,43 @@ public class Fraction {
         return (double) numerator / denominator;
     }
 
+    public boolean isProper() {
+        return this.numerator < this.denominator;
+    }
+
+    public boolean isImproper() {
+        return this.numerator >= this.denominator;
+    }
+
+    public boolean isEquivalent(Fraction fraction) {
+        return this.denominator * fraction.getNumerator() == this.numerator * fraction.getDenominator();
+    }
+
+    public Fraction add(Fraction fraction) {
+        Fraction result = new Fraction();
+        result.setDenominator(this.denominator * fraction.getDenominator());
+        result.setNumerator((result.getDenominator() / this.denominator * this.numerator)
+                + (result.getDenominator() / fraction.getDenominator() * fraction.getNumerator()));
+
+        return result;
+    }
+
+    public Fraction multiply(Fraction fraction) {
+        Fraction result = new Fraction();
+        result.setDenominator(this.denominator * fraction.getDenominator());
+        result.setNumerator(this.numerator * fraction.getNumerator());
+
+        return result;
+    }
+
+    public Fraction divide(Fraction fraction) {
+        Fraction result = new Fraction();
+        result.setDenominator(this.numerator * fraction.getDenominator());
+        result.setNumerator(this.denominator * fraction.getNumerator());
+
+        return result;
+    }
+
     @Override
     public String toString() {
         return "Fraction{" +
