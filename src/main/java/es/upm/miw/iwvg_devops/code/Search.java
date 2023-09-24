@@ -23,9 +23,9 @@ public class Search {
                 .map(User::getId);
     }
 
-    public Double findFirstDecimalFractionByUserName(String name) {
+    public Double findFirstDecimalFractionByUserName(String username) {
         return new UsersDatabase().findAll()
-                .filter(user -> user.getName().equals(name))
+                .filter(user -> user.getName().equals(username))
                 .findFirst()
                 .flatMap(user -> user.getFractions().stream()
                         .filter(fraction -> fraction.decimal() != 0)
