@@ -28,4 +28,16 @@ class SearchTest {
         assertEquals(List.of(), new Search().findUserIdByAllProperFraction().collect(Collectors.toList()));
     }
 
+    @Test
+    void testFindFirstDecimalFractionByUserName() {
+        Double result = 2.0;
+        assertEquals(result, new Search().findFirstDecimalFractionByUserName("Ana"));
+    }
+
+    @Test
+    void testNoFindFirstDecimalFractionByUserName() {
+        Double result = 3.0;
+        assertNotEquals(result, new Search().findFirstDecimalFractionByUserName("Ana"));
+    }
+
 }

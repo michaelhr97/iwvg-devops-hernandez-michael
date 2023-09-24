@@ -21,4 +21,14 @@ public class Search {
                 .filter(user -> user.getFractions().stream().allMatch(Fraction::isProper))
                 .map(User::getId);
     }
+
+    public Double findFirstDecimalFractionByUserName(String name) {
+        return new UsersDatabase().findAll()
+                .filter(user -> user.getName().equals(name))
+                .findFirst().flatMap(user -> user.getFractions().stream()
+                        .filter(fraction -> fraction.decimal() != 0)
+                        .findFirst()
+                        .map(Fraction::decimal))
+                .orElse(null);
+    }
 }
