@@ -4,6 +4,7 @@ import es.upm.miw.iwvg_devops.code.Fraction;
 import es.upm.miw.iwvg_devops.code.Search;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -38,5 +39,21 @@ class SearchTest {
     void testNoFindFirstDecimalFractionByUserName() {
         Double result = 3.0;
         assertNotEquals(result, new Search().findFirstDecimalFractionByUserName("Ana"));
+    }
+
+    @Test
+    void testFindDecimalImproperFractionByUserName() {
+        List<Double> result = new ArrayList<>();
+        result.add(1.0);
+        result.add(2.0);
+        assertEquals(result, new Search().findDecimalImproperFractionByUserName("Oscar").collect(Collectors.toList()));
+    }
+
+    @Test
+    void testNoFindDecimalImproperFractionByUserName() {
+        List<Double> result = new ArrayList<>();
+        result.add(3.0);
+        result.add(6.0);
+        assertNotEquals(result, new Search().findDecimalImproperFractionByUserName("Ana").collect(Collectors.toList()));
     }
 }
