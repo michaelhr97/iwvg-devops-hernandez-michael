@@ -39,5 +39,4 @@ class SearchTest {
         Double result = 3.0;
         assertNotEquals(result, new Search().findFirstDecimalFractionByUserName("Ana"));
     }
-
 }
